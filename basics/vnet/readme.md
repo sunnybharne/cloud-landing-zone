@@ -2,8 +2,12 @@
 
 ## Completed pages
 - [x] [Virtual Network Documentation](https://learn.microsoft.com/en-us/azure/virtual-network/)
-- [ ] About Virtual Network
-
+- [x] About Virtual Network
+- Qickstart
+    [x] Create Virtual network - Portal
+    [x] Create Virtual network - powershell
+    [x] Create Virtual network - Azure CLI
+    [x] Create Virtual network - Bicep
 
 ## Todo
 - [ ] [Vnet Training](https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-virtual-networks/?source=recommendations)
@@ -21,18 +25,40 @@
     - Assigning internal standard loadbalancer will not provide outboud ability to the vnet
 
 - Communication between Azure resources.
+    - Virtual network service point
+        - Direct connection to the serverless resources(like private endpoints)
+        - This is achieved by doing connecting vnets private endpoint to the service directly over azure backbone network.
+    - Vnet peering
+        - Connectes two vnets(even from different region)
+        
 - Communication with on-premises resources.
-- Filtering of network traffic.
+    - Point to site VPN
+        - Connection between Vnet and a single computer
+        - Connection is done using an encrypted tunner over the internet
+    - Site to site VPN
+        - Connection between Onprem VPN device and VPN gateway in azure network
+        - Connection is done using an encrypted tunner over the internet
+    - Azure express route
+        - Onprem to Azure vpn connection using dedicated channel
+        - Connection does not route via the internet
+
+- Filtering of network traffic between subnets
+    - Network security groups and application security groups
+    - Network virtual appliances
+        - NVA is a VM that performs a Network function(Like firewall or WAN)
+
 - Routing of network traffic.
-- Integration with Azure services.
+    - Routing be done by default, Default rules can be overridden by using below
+        - Rote table, Custom route tables can be created
+        - Border gateway protocol (BGP) - Need more understanding
 
-## Virtual network service point
-- Direct connection to the serverless resources(like private endpoints)
-- This is achieved by doing connecting vnets private endpoint to the service directly over azure backbone network.
-
-## Vnet peering 
-- Connectes two vnets(even from different region)
+- Integration with Azure services.(Accessing resources privately)
+    - Deploy dedicated instances of the service
+    - Azure private link(This is over the auzre backbone network)
+    - Service endpoints(This is over public endpoints)
 
 ## Imp points
 - When moving VM from one vnet to another, VM needs to be deleted and created again in the new vnet
-
+- There are limits to how many resources can be deployed to the VPN
+- Virtual networks and subnets span all availability zones in a region
+- There is no charge for using the VNET
