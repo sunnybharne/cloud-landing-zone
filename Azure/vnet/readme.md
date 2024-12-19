@@ -26,8 +26,9 @@
 
 - Communication between Azure resources.
     - Virtual network service point
-        - Direct connection to the serverless resources(like private endpoints)
-        - This is achieved by doing connecting vnets private endpoint to the service directly over azure backbone network.
+        - Direct connection to the serverless resources from vnet private endpoint via azure backbone network
+    - Private link
+        - This brings the virtual public service virtualling inside the vnet 
     - Vnet peering
         - Connectes two vnets(even from different region)
         
