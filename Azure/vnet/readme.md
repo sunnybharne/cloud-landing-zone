@@ -63,3 +63,10 @@
 - There are limits to how many resources can be deployed to the VPN
 - Virtual networks and subnets span all availability zones in a region
 - There is no charge for using the VNET
+- One Vnet is assosiated with one region
+- Vnet is always assigned a private ip (Free)
+- You can choose to create a public Ipddress for your vnet (Paid)
+- Resources can talk to each other even if they are in different subnets
+- Azure ddos protection can be enabled
+    - Basics(enabled by default for free)
+    - Ddos protection standard(advanced protection at additional cost)

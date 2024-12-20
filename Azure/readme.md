@@ -74,3 +74,24 @@
     - NSG can be attached to subnet
     - NSG can be attached to Vertual machines network interface
     - NSG cant be attached to the Vnet
+
+## Azure arc
+    - Help you manage your on prem and multicloud resources from one place
+
+## Azure advisor
+    - Gives your recomendation based on the deployments
+
+## Azure service health
+    - Gives information about the planned maintenance and issues in azure
+    - You can create service health alert if there is any downtime from azure
+
+## Azure monitoring service
+    - Collects different metrics about the resources deployed
+    - Alerts can be generated
+    - Logs can be enabled too
+
+## Log analytics
+    - Create datacollection rules
+
+## Application insiths
+    - Live performance metrics
