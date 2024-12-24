@@ -27,9 +27,22 @@
             - You can add custom domain to the the tenant too (In most cases you can just use the one that is provided by MS, I use it like that )
             - After making the custom domain just make it as a primary domain
     - Subscription (Billing)
-        - Pay as you go
-        - Enterprice
+        - Can be moved to a different tenent
+        - Sub Types
+            - Pay as you go
+            - Enterprice
+        - Cost management
+            - Cost analysis(Shows you your spendings)
+            - Cost alert
+                - Create a budget
+                - Create an anomaly(Its not a budget but just an email trigger with anomaly)
+                    - This will detect if there are some wired changes to the resources or to the cost (Can get an email daily too)
+            - Budget
+                - Create budget
+            - Azvisor recommendations
+                - Gives advice on your resources
     - Resource Group
+        
 
 
 ### Users
