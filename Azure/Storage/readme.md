@@ -25,9 +25,20 @@
 ## Storage Type
     - Containers - (Blob, can hold only container blobs, unstructured data )
     - File Shares - SMB or NFS (Linux) , Azure file sync is hybrid approach to file share
+        - Types
+            - Transaction optimized, Hot and cold
+        - This does not work from home system as the SMB/445 port is blocked by ISP's
+        - Add directory
+        - Backups (Runs on a schedule, can be done manually too)
+        - Snapshot(point in time version of the file is saved, never expires)
+        ## Azure file sync
+            - Download application on the server 
+            - This server syncs files to the file share
+            - Group sync (Which files needs to be synced)
     - Queues - messages can be queued or dequeued
-    - Tables - entities are added to the tables for data(Like a database)
-        - Data is stored with partitionKey = column and rowKey = row
+    - Tables (No sql database)
+        - entities 
+            - partitionKey = column and rowKey = row
 
 ## Advance settings
     - Require secure transfer for RestAPI
@@ -37,7 +48,7 @@
     - Mininum TLS version
     - Datalake
         - used for big data, can store more that 5 petabytes, hadoop of synaps
-    - Enable large file shared(This is becuase the file share are not at 5 TB, to get more storage you have to select this option)
+    - Enable large file share(Initial capacity = 100 TB, select this to get more storage)
 
 ## Access Tier
     - Hot (default)
@@ -76,20 +87,56 @@
         when its created you have to decide if this needs to be appled on only blobs or all storage types(Cant be changed afterwords)
     - Enable infrastructure encryption
 
+## Storage account settings
+    - security + networking
+        - Access Keys(2 SAS token)
+        - Shared access signature
+            - Give SAS depending on the conditions
+    - Access policy
+        - Give the condition(This policy can be used for the SAS token generation)
+        - On deleting the policy the access to the files is revoked(Dont need to rotate the keys)
+    - Endpoints
+        - All the links to the storage types
+        - You get extra read endpoints in case if GZRS
+    - Georeplication
+        - Failover(Click this button to make secondary region primary)
+    - Dataprotection
+        - Versioning
+            - keep version  
+            - Delete after some time
+
 ## Storage account accessibility
     - Storage explorer, downloadable software for viewing the storage services
     - Storage browser is another way of viewing your storage services
 
-------------------------
+## Monitoring
+    - insights
+    - Alerts
+    - Metrics(compute unit level metrics)
+    - Workbooks (Queries)
+    - Diagonastics settings
+        - this needs to be turned on
+        - Can send to log analythics workspace, storage account or stream to event hub
 
-*Imp points*
-    - AZ copy copies the content from one container to another
-    - 
-
-*Azure migrate*
+## Import export job 
+    - Dose not work for normal agreements
+    - Azure databox (AWS snowball)*
+        - Databox (100 tB)
+        - Databox Disk (8 tb)
+        - Databox Heavy (1 PB)
+    - Create Jobs
+        - Provide your own disk
+        - Creates a .jr file
+    - Az copy (One container to another) , does not triverse over the internet
+        - Authentication
+            - SAS token
+            - Azure AD
+ 
+## Azure migrate
     - Discovery (Examins your achitecture and gives a suggestion on migration)
 
-*Azure databox (AWS snowball)*
-    - Databox (100 tB)
-    - Databox Disk (8 tb)
-    - Databox Heavy (1 PB)
+## Data management
+    - Object replication
+        - Create replication
+            - Source account -->> destination account(Read only)
+
