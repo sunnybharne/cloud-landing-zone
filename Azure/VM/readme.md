@@ -32,7 +32,43 @@
         - Data disk for VM 
             - This can be detached and reattached to another vm
             - This cant be attached to two different VM's at the same time (Use file shares to do that)
-        
+    - Networking
+        - Vnet 
+            - every vm should be linked to a Vnet
+            - Vnet should be in the same region as the vm
+        - Subnet
+        - Public ip (with this the vm can be accessed from the internet)
+        - Network security group(controls the access to the subnet)
+            - Public inbound ports
+                - None
+                - Allow selected ports
+                - Http, Https, Ssh, Rdp
+        - Enable accelerated netorking (high speed network between the vm's)
+        - Loadbalancing
+            - None
+            - Azure loadbalancer
+            - Application gateway
+    - Managemnent
+        - Defender for cloud
+        - Identity (managed identity)
+        - Azure AD login
+        - Auto shutdown
+        - Backups
+        - Disaster recovery
+        - Os updates
+        - Hot patching
+        - Rebooting
+    - Monitoring 
+        - Alerts (Cost involved)
+        - Boot diagonastcs
+    - Advance
+        - Can have agents installed on the vm
+        - Custom scripts
+        - Custom data
+        - Nvme
+        - Dedicated host
+        - Capacity reservation
+        - Proximity placement (Shortest distance between the vm's)
 
 ### IP address
     - public IP address is not free , every public IP address has a cost attached to it.
