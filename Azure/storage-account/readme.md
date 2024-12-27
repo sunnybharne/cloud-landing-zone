@@ -94,11 +94,12 @@
     - RA GZRS - read only GZRS
 
 ## Security and Networking
-    - Network connectivity
-        - Public 
-        - From an address space
-        - Disable public access
-        - Private links
+    - Networking
+        - Firewall and virtual networks
+            - Public, specific IP , Disable 
+        - Private endpoint connections
+            - Private links 
+        - Custom domains
     - Network routing
         - Microsoft network routing (This tries to be on MS backnbone)
         - Internet Routing (This doesnt)
