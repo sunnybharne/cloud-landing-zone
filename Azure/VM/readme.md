@@ -1,37 +1,75 @@
 # Virtual Machines(VM)
 
 ## Vm Creation
-    - Redundancy
-    - Security type
-        - Standard
-        - Trusted launch
-        - Confidential vertual machine
-    - Image
-    - Run with spot instances
-    - Size
-        - D series --> General purpose
-        - E series --> High memory
-        - B series --> Burstable(Variable cpu performance) 
-        - F series --> High GPU
-    - Administrator account
-        - Username,password
-    - Public inbound port
-        - None
-        - Allow selected ports
-            - Http, Https, Ssh, Rdp
+    - Basic
+        - Availability
+            - No infrastructure redundancy
+            - Availability zones
+                - You can have multiple vm's in multiple az's in a region.
+            - VM scale sets (Comes with a load balancer)
+                - Dynamic scaling of multiple virtual machines.
+            - Availability sets (does not come with load balancer)
+                - more that two vm's
+                - Fault domains (Based on power source and network switch)
+                    - 2 machines with 2 fault domains will create 1 each vm's in seperate power supplys)
+                    - 4 machines with 2 fault domains will create 2 vm's each in seperate power supplys)
+                - Update domain (This for maintenance activity, up to 20 servers allowed)
+                    - 4 vm's and 5 update domains then only one vm will be updated for planned maintenance at a time.
+                    - 20 machines a 5 update domains then 5 vm's will be updated for planned maintenance at a time. 
+        - Security type
+            - Standard
+            - Trusted launch virtual machine
+            - Confidential virtual machine
+        - Image
+            - Ubuntu
+            - Windows
+        - VM architecture
+            - Arm 64
+            - x64
+        - Run with spot instances
+        - Size
+            - D series --> General purpose
+            - E series --> High memory
+            - B series --> Burstable(Variable cpu performance) 
+            - F series --> High GPU
+        - Enable hibernation
+        - Administrator account
+            - Username
+            - password
+                - SSH public key
+                - Password
+        - Public inbound port
+            - None
+            - Allow selected ports
+                - Http, Https, Ssh, Rdp
     - Disk
+        - Vm disk Encryption
+            - Encryption at host
         - Os disk (Temporary storage)
-            - Premium SSD, Standard SSD, Standard HDD
-            - Zone redundant storage
-                - Premium SSD, Standard SSD
-        - Key management
-            - Platform managed keys
-            - Customer managed keys
-            - Platform and customer managed keys
-        - Enable ultra disk (More crazyer than Premium SSD)
-        - Data disk for VM 
-            - This can be detached and reattached to another vm
-            - This cant be attached to two different VM's at the same time (Use file shares to do that)
+            - Disk size
+            - Disk type
+                - Premium SSD
+                - Standard SSD
+                - Standard HDD
+                - Zone redundant storage(data replicated in three zones)
+                    - Premium SSD
+                    - Standard SSD
+            - Delete with VM
+            - Key management
+                - Platform managed keys
+                - Customer managed keys
+                - Platform managed and customer managed keys
+            - Enable Ultra Disk compatibility (More faster than premium ssd)
+        - Data disks for vm's
+            - Add extra data disk (This can be detached and reattached to another vm)
+            - This cant be attached to two different VM's at the same time (Use file shares to do that
+        - Advanced
+            - Use managed disks
+            - Ephemeral os disk
+                - none
+                - os cache placement
+                - test disk placement
+----------------------- Start from here
     - Networking
         - Vnet 
             - every vm should be linked to a Vnet
@@ -69,6 +107,28 @@
         - Dedicated host
         - Capacity reservation
         - Proximity placement (Shortest distance between the vm's)
+    - Enable hibernation
+    - Administrator account
+        - SSH key
+        - password
+        - username, password
+    - Disk
+        - Encryption at host
+    - Os disk
+        - Os disk size
+        - Os disk type
+        - Delete with VM
+        - Key management
+        - Enable ultra disk compatibility
+    - Data disks for mv
+        - Add extra vm's
+    - Advanced
+        - Use managed disks
+        - Ephemeral Os disk
+            - None
+            - Os cache placememt
+            - Temp disk placement
+    
 
 ### IP address
     - public IP address is not free , every public IP address has a cost attached to it.
