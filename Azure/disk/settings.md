@@ -1,5 +1,13 @@
 # Disk settings
 
+## Overview
+- Create snapshot 
+    - Disk can be created from the snapshot
+- Name, region
+- Snaphot type
+    - Incremental(Save on cost by making partial copy, based on difference between the last snapshot)
+    - Full (Make complete read only copy of the disk)
+
 ## Settings
 
 ### Configuration
