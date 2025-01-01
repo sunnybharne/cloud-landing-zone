@@ -1,4 +1,4 @@
-# Vm Creation
+# Create virtual machine
 
 ## Basic
 - Availability options

@@ -1,4 +1,4 @@
-# VMSS Creation
+# Create VMSS
 
 ## Basic
     - Region
