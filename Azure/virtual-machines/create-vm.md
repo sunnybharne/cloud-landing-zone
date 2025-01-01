@@ -2,12 +2,18 @@
 
 ## Vm Creation
     - Basic
-        - Availability
+        - Availability options
             - No infrastructure redundancy
             - Availability zones
-                - You can have multiple vm's in multiple az's in a region.
+                - Self selected , choose upto three availability zones in a region (Three az's meaning two extra vm cost)
+                - Azure selected zones. (Azure selects the region for you)
             - VM scale sets (Comes with a load balancer)
-                - Dynamic scaling of multiple virtual machines.
+                - Create new scale sets
+                    - Select availability zones
+                    - Orchestration
+                        - Scale set model (mode)
+                            - Flexible (Mix with linux and windows systems with spot with some spot instances)
+                            - Uniform
             - Availability sets (does not come with load balancer)
                 - more that two vm's
                 - Fault domains (Based on power source and network switch)
@@ -28,10 +34,6 @@
             - x64
         - Run with spot instances
         - Size
-            - D series --> General purpose
-            - E series --> High memory
-            - B series --> Burstable(Variable cpu performance) 
-            - F series --> High GPU
         - Enable hibernation
         - Administrator account
             - Username
@@ -43,8 +45,7 @@
             - Allow selected ports
                 - Http, Https, Ssh, Rdp
     - Disk
-        - Vm disk Encryption
-            - Encryption at host
+        - Encryption at host
         - Os disk (Temporary storage)
             - Disk size
             - Disk type
@@ -69,7 +70,6 @@
                 - none
                 - os cache placement
                 - test disk placement
------------------------ Start from here
     - Networking
         - Vnet 
             - every vm should be linked to a Vnet
@@ -81,6 +81,7 @@
                 - None
                 - Allow selected ports
                 - Http, Https, Ssh, Rdp
+        - Delete NIC and public Ip when vm is deleted
         - Enable accelerated netorking (high speed network between the vm's)
         - Loadbalancing
             - None
@@ -91,45 +92,108 @@
         - Identity (managed identity)
         - Azure AD login
         - Auto shutdown
-        - Backups
-        - Disaster recovery
+        - Enable backups
+            - Disaster recovery
         - Os updates
         - Hot patching
         - Rebooting
     - Monitoring 
         - Alerts (Cost involved)
         - Boot diagonastcs
+        - Health monitoring
     - Advance
-        - Can have agents installed on the vm
-        - Custom scripts
+        - Extention
+            - Install custom extentions
+        - Vm applications
+            - Install custom applications
         - Custom data
-        - Nvme
+            - Init script
+            - Custom data
+        - User data
+            - Pass a script or a configuration file
+        - Performance nvme
         - Dedicated host
-        - Capacity reservation
-        - Proximity placement (Shortest distance between the vm's)
-    - Enable hibernation
-    - Administrator account
-        - SSH key
-        - password
-        - username, password
-    - Disk
-        - Encryption at host
-    - Os disk
-        - Os disk size
-        - Os disk type
-        - Delete with VM
-        - Key management
-        - Enable ultra disk compatibility
-    - Data disks for mv
-        - Add extra vm's
-    - Advanced
-        - Use managed disks
-        - Ephemeral Os disk
-            - None
-            - Os cache placememt
-            - Temp disk placement
-    
+            - Host group
+            - Capacity reservation group
+            - Proximity placemanent group (Shortest distance between the vm's)
 
+## VMSS Creation
+    - Basic
+        - Region
+        - Az's
+        - Orchestration
+            - Uniform
+            - FLexible
+        - Security type
+        - Scaling mode
+            - Manually update the capacity
+            - Auto scaling based on cpu metrics
+            - No scaling profile
+        - Instance count
+        - Instance details, architecture, size, username, password
+    - Spot
+        - Turn on spot vm's only
+        - Eviction type
+        - Max price you want to pay per hour
+        - Eviction policy
+        - Scale with vm's and discounted spot vm's
+        - Base vm price 
+        - Instance distribution
+    - Network
+        - Lb
+            - None
+            - Loadbalancer
+            - Application gateway
+    - Scaling
+        - Manual
+        - Autoscaling(With the conditions)
+    - Networking
+    - Management
+    - Health
+    - Advance
+    - Tags
+    - Enable scaling beyond 100 instances
+    - Spreading algorithm
+        - Max spreading
+        - Fixed spreading
+    - Custom data
+
+## Vm level settings
+### Connect
+    - Connect
+        - rdp on windows machine(port 3389)
+        - ssh on linux based machine(port 443)
+    - Bastion
+        - Deploy baston
+        - Bastion needs to be in the same region
+        - Bastion needs to be attached to the same vnet
+        - Tier
+            - Basic
+            - Standard(Sharable link)
+        - Need a new subnet for the bastion, needs /26 
+
+### Networking
+### Settings
+    - Disks
+        - Swap os disks
+            - Host caching
+        - Data disks
+            - Create and attach a new data disks.
+            - Storage type
+            - Size (4,8,16,32,64,124,256)
+            - Encription
+    - Availability + scale
+        - Size (select the vm size, vm will restart if its already running)
+            - D series --> General purpose
+            - E series --> High memory
+            - B series --> Burstable(Variable cpu performance) 
+            - F series --> High GPU
+        - Availability and scaling
+            - Availability zones
+            - Scaling (vmss)
+            - Availabilitu set
+    
+------------------ Stuff below was from az 900
 ### IP address
     - public IP address is not free , every public IP address has a cost attached to it.
     - Dynamic Public IP address 
@@ -208,10 +272,12 @@
     - Azure reservations ( pay for long term at discount ) 
 
 ## Disk storage
-    - Connected to azure VM's
+        - Connected to azure VM's
         - Standard HDD
         - Standard SSD
         - Premium SSD
         - Ultra disk SSD
+
+--------------
 
 
