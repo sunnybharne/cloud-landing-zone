@@ -1,6 +1,4 @@
-# Virtual Machines(VM)
-
-## Vm Creation
+# Vm Creation
     - Basic
         - Availability options
             - No infrastructure redundancy
@@ -117,7 +115,7 @@
             - Capacity reservation group
             - Proximity placemanent group (Shortest distance between the vm's)
 
-## VMSS Creation
+# VMSS Creation
     - Basic
         - Region
         - Az's
@@ -159,42 +157,42 @@
     - Custom data
     
 ------------------ Stuff below was from az 900
-### IP address
+# IP address
     - public IP address is not free , every public IP address has a cost attached to it.
     - Dynamic Public IP address 
     - Static Public IP address
     - Private IP address
 
-### Dedicated host virtual machines
+# Dedicated host virtual machines
     - Create dedicated host from marketplace
     - Then create virtual machines inside that dedicated host
 
-### Azure Spot instances 
+# Azure Spot instances 
     - The vm's can be stopped any time 
     - Should be used for workloads which can handle vm's stopping , reserved for 1 or 3 years
 
-### Reserved instance 
+# Reserved instance 
     - You can reserve capacity in bulk for longer periods of time which can then cost you less 
 
-### Azure monitoring 
+# Azure monitoring 
     - This helps monitor the logs and other metrics of the virtual machine
 
 
-## VM Scale sets(VMSS)
+# VM Scale sets(VMSS)
     - Scaling based on conditions
     - up to 100 VMs in single scale sets can be increased that to 1000
     - It creates a loadbalancer by default(Should be explicitly deleted)
 
-## Availability sets
+# Availability sets
     - load balancing between two servers
     - Fault domains (machines running on different rack)
     - Update domains (used for updateing the applications)
 
-## Proximity group
+# Proximity group
     - Having multiple machines close to each other
     - Faster inter communication due to being very close to each other 
 
-## Imp points
+# Imp points
     - RDP - port 3389 windows machine 
     - SSH - port 22 Linux machine 
     - Vent ( free of cost, only traffic going out of the Avnet is charged)
@@ -211,32 +209,36 @@
     - Each VM can be assigned one public IP address so that It can be accessed from the internet.
 
 
-## VM sizes 
+# VM sizes 
     - Bs ( low cost )
     - D general purpose 
     - F more compute power 
     - M more memory 
     - N more gpu power
-## Availability chart 
+
+# Availability chart 
     - Single instance premium ssd or ultra disk 99.9 
     - Single instance standard ssd 99.5
     -  Single instanceHdd 95
-## Availability sets ( logical grouping to increase availability) 99.95
+
+# Availability sets ( logical grouping to increase availability) 99.95
     - Fault domain ( grouping on different power source )
     - Update domain ( grouping on the base of updates ) 
-## Availablity zones 99.99 
+
+# Availablity zones 99.99 
     - Scale set ( create multiple vms ) 
     - Add optional lb
     - Multiple availablity zones 
     - Scaling 
     - Manual scaling 
     - Rule based scaling 
-## Pricing:
+
+# Pricing:
     - Dedicated host 
     - Azure spot instance ( unused capacity ,azure can decide to take it back ) 
     - Azure reservations ( pay for long term at discount ) 
 
-## Disk storage
+# Disk storage
         - Connected to azure VM's
         - Standard HDD
         - Standard SSD
