@@ -1,114 +1,121 @@
 # Vm Creation
-    - Basic
-        - Availability options
-            - No infrastructure redundancy
-            - Availability zones (self selected , azure selected)
-            - VM scale sets (Comes with a load balancer)
-                - Create new scale sets
-                    - Select availability zones
-                    - Orchestration
-                        - Scale set model (mode)
-                            - Flexible (Mix with linux and windows systems with spot with some spot instances)
-                            - Uniform
-            - Availability sets (does not come with load balancer)
-                - more that two vm's
-                - Fault domains (Based on power source and network switch)
-                    - 2 machines with 2 fault domains will create 1 each vm's in seperate power supplys)
-                    - 4 machines with 2 fault domains will create 2 vm's each in seperate power supplys)
-                - Update domain (This for maintenance activity, up to 20 servers allowed)
-                    - 4 vm's and 5 update domains then only one vm will be updated for planned maintenance at a time.
-                    - 20 machines a 5 update domains then 5 vm's will be updated for planned maintenance at a time. 
-        - Security type
-        - Image
-            - Ubuntu
-            - Windows
-        - VM architecture
-            - Arm 64
-            - x64
-        - Run with spot instances
-        - Size
-        - Enable hibernation
-        - Administrator account
-            - Username
-            - password
-                - SSH public key
-                - Password
-        - Public inbound port
-            - None
-            - Allow selected ports
-                - Http, Https, Ssh, Rdp
-    - Disk
-        - Encryption at host
-        - Os disk (Temporary storage)
-            - Disk size
-            - Disk type
+
+## Basic
+    - Availability options
+        - No infrastructure redundancy
+        - Availability zones (self selected , azure selected)
+        - VM scale sets (Comes with a load balancer)
+            - Create new scale sets
+                - Select availability zones
+                - Orchestration
+                    - Scale set model (mode)
+                        - Flexible (Mix with linux and windows systems with spot with some spot instances)
+                        - Uniform
+        - Availability sets (does not come with load balancer)
+            - more that two vm's
+            - Fault domains (Based on power source and network switch)
+                - 2 machines with 2 fault domains will create 1 each vm's in seperate power supplys)
+                - 4 machines with 2 fault domains will create 2 vm's each in seperate power supplys)
+            - Update domain (This for maintenance activity, up to 20 servers allowed)
+                - 4 vm's and 5 update domains then only one vm will be updated for planned maintenance at a time.
+                - 20 machines a 5 update domains then 5 vm's will be updated for planned maintenance at a time. 
+    - Security type
+    - Image
+        - Ubuntu
+        - Windows
+    - VM architecture
+        - Arm 64
+        - x64
+    - Run with spot instances
+    - Size
+    - Enable hibernation
+    - Administrator account
+        - Username
+        - password
+            - SSH public key
+            - Password
+    - Public inbound port
+        - None
+        - Allow selected ports
+            - Http, Https, Ssh, Rdp
+
+## Disk
+    - Encryption at host
+    - Os disk (Temporary storage)
+        - Disk size
+        - Disk type
+            - Premium SSD
+            - Standard SSD
+            - Standard HDD
+            - Zone redundant storage(data replicated in three zones)
                 - Premium SSD
                 - Standard SSD
-                - Standard HDD
-                - Zone redundant storage(data replicated in three zones)
-                    - Premium SSD
-                    - Standard SSD
-            - Delete with VM
-            - Key management
-                - Platform managed keys
-                - Customer managed keys
-                - Platform managed and customer managed keys
-            - Enable Ultra Disk compatibility (More faster than premium ssd)
-        - Data disks for vm's
-            - Add extra data disk (This can be detached and reattached to another vm)
-            - This cant be attached to two different VM's at the same time (Use file shares to do that
-        - Advanced
-            - Use managed disks
-            - Ephemeral os disk
-                - none
-                - os cache placement
-                - test disk placement
-    - Networking
-        - Vnet 
-            - every vm should be linked to a Vnet
-            - Vnet should be in the same region as the vm
-        - Subnet
-        - Public ip (with this the vm can be accessed from the internet)
-        - Network security group(controls the access to the subnet)
-            - Public inbound ports
-                - None
-                - Allow selected ports
-                - Http, Https, Ssh, Rdp
-        - Delete NIC and public Ip when vm is deleted
-        - Enable accelerated netorking (high speed network between the vm's)
-        - Loadbalancing
+        - Delete with VM
+        - Key management
+            - Platform managed keys
+            - Customer managed keys
+            - Platform managed and customer managed keys
+        - Enable Ultra Disk compatibility (More faster than premium ssd)
+    - Temporary disk
+    - Data disks for vm's
+        - Add extra data disk (This can be detached and reattached to another vm)
+        - This cant be attached to two different VM's at the same time (Use file shares to do that
+    - Advanced
+        - Use managed disks
+        - Ephemeral os disk
+            - none
+            - os cache placement
+            - test disk placement
+
+## Networking
+    - Vnet 
+        - every vm should be linked to a Vnet
+        - Vnet should be in the same region as the vm
+    - Subnet
+    - Public ip (with this the vm can be accessed from the internet)
+    - Network security group(controls the access to the subnet)
+        - Public inbound ports
             - None
-            - Azure loadbalancer
-            - Application gateway
-    - Managemnent
-        - Defender for cloud
-        - Identity (managed identity)
-        - Azure AD login
-        - Auto shutdown
-        - Enable backups
-            - Disaster recovery
-        - Os updates
-        - Hot patching
-        - Rebooting
-    - Monitoring 
-        - Alerts (Cost involved)
-        - Boot diagonastcs
-        - Health monitoring
-    - Advance
-        - Extention
-            - Install custom extentions
-        - Vm applications
-            - Install custom applications
+            - Allow selected ports
+            - Http, Https, Ssh, Rdp
+    - Delete NIC and public Ip when vm is deleted
+    - Enable accelerated netorking (high speed network between the vm's)
+    - Loadbalancing
+        - None
+        - Azure loadbalancer
+        - Application gateway
+
+## Managemnent
+    - Defender for cloud
+    - Identity (managed identity)
+    - Azure AD login
+    - Auto shutdown
+    - Enable backups
+        - Disaster recovery
+    - Os updates
+    - Hot patching
+    - Rebooting
+
+## Monitoring 
+    - Alerts (Cost involved)
+    - Boot diagonastcs
+    - Health monitoring
+
+## Advance
+    - Extention
+        - Install custom extentions
+    - Vm applications
+        - Install custom applications
+    - Custom data
+        - Init script
         - Custom data
-            - Init script
-            - Custom data
-        - User data
-            - Pass a script or a configuration file
-        - Performance nvme
-        - Dedicated host
-            - Host group
-            - Capacity reservation group
-            - Proximity placemanent group (Shortest distance between the vm's)
+    - User data
+        - Pass a script or a configuration file
+    - Performance nvme
+    - Dedicated host
+        - Host group
+        - Capacity reservation group
+        - Proximity placemanent group (Shortest distance between the vm's)
 
 # VMSS Creation
     - Basic
@@ -232,10 +239,3 @@
     - Dedicated host 
     - Azure spot instance ( unused capacity ,azure can decide to take it back ) 
     - Azure reservations ( pay for long term at discount ) 
-
-# Disk storage
-        - Connected to azure VM's
-        - Standard HDD
-        - Standard SSD
-        - Premium SSD
-        - Ultra disk SSD
