@@ -67,15 +67,18 @@
         - Availability zones, choose upto three availability zones in a region (Three az's meaning two extra vm cost)
         - Scaling (select -> vmss)
         - Availability set -> make vm part of availablity set
+
 ## Security
 - Identity
     - System assigned
     - User assigned
 - Ms defender for cloud
+
 ## Backup + disaster recovery
 - Backup
 - Disaster recovery
 - Restore point
+
 ## Operations
 - Autoshut down
     - Switch on/off
@@ -88,6 +91,7 @@
 - Policies
 - Inventory
 - Change tracking
+
 ## Monitoring
 - Insights
 - Alerts
@@ -95,6 +99,7 @@
 - Diagnostics settings
 - Logs
 - Workbooks
+
 ## Automation
 - Task
 - Export templetes
