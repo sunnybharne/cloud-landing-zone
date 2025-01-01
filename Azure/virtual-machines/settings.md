@@ -1,19 +1,20 @@
-## Vm level settings
-### Connect
-    - Connect
-        - rdp on windows machine(port 3389)
-        - ssh on linux based machine(port 443)
-    - Bastion
-        - Deploy baston
-        - Bastion needs to be in the same region
-        - Bastion needs to be attached to the same vnet
-        - Tier
-            - Basic
-            - Standard(Sharable link)
-        - Need a new subnet for the bastion, needs /26 
+# Vm level settings
+## Connect
+- Connect
+    - rdp on windows machine(port 3389)
+    - ssh on linux based machine(port 443)
+- Bastion
+    - Deploy baston
+    - Bastion needs to be in the same region
+    - Bastion needs to be attached to the same vnet
+    - Tier
+        - Basic
+        - Standard(Sharable link)
+    - Need a new subnet for the bastion, needs /26 
 
-### Networking
-### Settings
+## Networking
+    - 
+## Settings
     - Disks
         - Swap os disks
             - Host caching
