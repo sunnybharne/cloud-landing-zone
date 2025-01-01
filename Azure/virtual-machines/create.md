@@ -2,9 +2,7 @@
     - Basic
         - Availability options
             - No infrastructure redundancy
-            - Availability zones
-                - Self selected , choose upto three availability zones in a region (Three az's meaning two extra vm cost)
-                - Azure selected zones. (Azure selects the region for you)
+            - Availability zones (self selected , azure selected)
             - VM scale sets (Comes with a load balancer)
                 - Create new scale sets
                     - Select availability zones
@@ -21,9 +19,6 @@
                     - 4 vm's and 5 update domains then only one vm will be updated for planned maintenance at a time.
                     - 20 machines a 5 update domains then 5 vm's will be updated for planned maintenance at a time. 
         - Security type
-            - Standard
-            - Trusted launch virtual machine
-            - Confidential virtual machine
         - Image
             - Ubuntu
             - Windows
